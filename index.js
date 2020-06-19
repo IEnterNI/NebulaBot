@@ -1,5 +1,6 @@
 const fs = require('fs');
 const { Client } = require('discord.js');
+const config = JSON.parse(fs.readFileSync('config.json', 'utf8'));
 
 const client = new Client({ partials: ['MESSAGE'] });
 
