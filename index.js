@@ -18,6 +18,8 @@ async function onReady() {
 		console.log(`Logged in as ${client.user.tag}!`);
 		await channel.messages.fetch({ limit: 1 }).then(messages => {
 			config.message_id = messages.first().id;
+			messages.first().react('🇷🇺');
+			messages.first().react('🇬🇧');
 		});
 	}
 	catch (err) {
