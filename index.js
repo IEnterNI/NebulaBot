@@ -1,6 +1,5 @@
 const fs = require('fs');
 const { Client } = require('discord.js');
-const config = JSON.parse(fs.readFileSync('config.json', 'utf8'));
 
 const client = new Client({ partials: ['MESSAGE'] });
 
@@ -8,7 +7,7 @@ client.on('ready', onReady);
 client.on('messageReactionAdd', addRole);
 client.on('messageReactionRemove', removeRole);
 
-client.login('MzIxNjY1NTgzNTcxNzk1OTY4.XuvKFQ.2icXGzVNzQ2qgPrIZiOazBmLF7c');
+client.login(process.env.BOT_TOKEN);
 
 async function onReady() {
 	const channel = client.channels.cache.find((channel) => channel.name === config.channel);
