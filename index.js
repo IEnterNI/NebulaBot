@@ -8,7 +8,7 @@ client.on('ready', onReady);
 client.on('messageReactionAdd', addRole);
 client.on('messageReactionRemove', removeRole);
 
-client.login(process.env.BOT_TOKEN);
+client.login('MzIxNjY1NTgzNTcxNzk1OTY4.XuvKFQ.2icXGzVNzQ2qgPrIZiOazBmLF7c');
 
 async function onReady() {
 	const channel = client.channels.cache.find((channel) => channel.name === config.channel);
@@ -43,9 +43,9 @@ async function addRole({ message, _emoji }, user) {
 
 	const { guild } = message;
 	const member = guild.members.cache.get(user.id);
-	const role = guild.roles.cache.find((role) => role.name === config.roles[_emoji.reaction.message.id]);
-	console.log(role);
-	console.log (_emoji.reaction.message.id);
+	const role = guild.roles.cache.find((role) => role.name === config.roles[_emoji.name]);
+	// console.log(role);
+	// console.log (_emoji.name);
 	if (!role) {
 		console.error(`Role not found for ${_emoji.name}`);
 		return;
@@ -75,7 +75,7 @@ async function removeRole({ message, _emoji }, user) {
 
 	const { guild } = message;
 	const member = guild.members.cache.get(user.id);
-	const role = guild.roles.cache.find((role) => role.name === config.roles[_emoji.reaction.message.id]);
+	const role = guild.roles.cache.find((role) => role.name === config.roles[_emoji.name]);
 
 	if (!role) {
 		console.error(`Role not found for ${_emoji.name}`);
