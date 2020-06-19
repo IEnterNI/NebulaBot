@@ -1,0 +1,9 @@
+{
+    "token": "MzIxNjY1NTgzNTcxNzk1OTY4",
+    "channel": "test",
+    "roles": {
+      "723610950741000293": "one",
+      "two": "two",
+      "three": "three"
+    }
+  }
