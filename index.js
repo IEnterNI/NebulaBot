@@ -13,13 +13,19 @@ client.login(process.env.BOT_TOKEN);
 async function onReady() {
 	const channel = client.channels.cache.find((channel) => channel.name === config.channel);
 
-	// channel will not contain messages after it is found
 	try {
 		console.log(`Logged in as ${client.user.tag}!`);
-		await channel.messages.fetch({ limit: 1 }).then(messages => {
-			config.message_id = messages.first().id;
-			messages.first().react('🇷🇺');
-			messages.first().react('🇬🇧');
+	}
+	catch (err) {
+		console.error('Cant acess bot', err);
+		return;
+	}
+	// channel will not contain messages after it is found
+	try {
+		await channel.messages.fetch(process.env.MESSAGE_ID).then(message => {
+			config.message_id = message.id;
+			message.react('🇷🇺');
+			message.react('🇬🇧');
 		});
 	}
 	catch (err) {
